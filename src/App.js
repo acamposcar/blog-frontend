@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import React, { useContext } from 'react'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Auth from './pages/Auth'
+import Container from './components/UI/Container'
+import AuthContext from './store/auth-context'
+import Profile from './pages/Profile'
 
 function App() {
+  const authCtx = useContext(AuthContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Container>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          {!authCtx.isLoggedIn && (
+            <>
+              <Route path='/login' element={<Auth />} />
+              <Route path='/register' element={<Auth />} />
+              <Route path='/profile' element={<Navigate to="/login" replace={true} />} />
+            </>
+          )}
+          {authCtx.isLoggedIn && (
+            <>
+              <Route path='/login' element={<Navigate to="/" replace={true} />} />
+              <Route path='/register' element={<Navigate to="/" replace={true} />} />
+              <Route path='/logout' element={<Navigate to="/" replace={true} />} />
+              <Route path='/profile' element={<Profile />} />
+
+            </>
+          )}
+        </Routes>
+      </Container>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,34 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3em;
+    border-bottom: solid thin;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.header>nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.header>nav a {
+    text-decoration: none;
+    color: rgb(124, 124, 124);
+    cursor: pointer;
+}
+
+.header>nav a.active {
+    color: black;
+    text-decoration: underline;
+}
+
+.header>nav a:hover {
+    color: black;
+}
