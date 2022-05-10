@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PostItem from '../components/PostItem'
-// import classes from './styles/Home.module.css'
+// import classes from './Home.module.css'
 
 const Home = () => {
   const [posts, setPosts] = useState()
@@ -21,6 +21,7 @@ const Home = () => {
 
         for (const post of responseData.data) {
           postsData.push({
+            id: post._id,
             title: post.title,
             content: post.content,
             date: new Date(post.date),
@@ -41,7 +42,7 @@ const Home = () => {
   let postsList
   if (posts) {
     postsList = posts.map(post => {
-      return <PostItem key={post._id} post={post} />
+      return <PostItem key={post.id} post={post} />
     })
   }
 
