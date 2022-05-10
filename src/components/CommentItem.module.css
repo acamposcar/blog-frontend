@@ -1,0 +1,10 @@
+.content {
+    margin: 1em 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(75, 75, 75);
+    font-size: 0.9em;
+}

@@ -1,4 +1,4 @@
-import classes from './styles/Auth.module.css'
+import classes from './Auth.module.css'
 import React, { useEffect, useRef, useState, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Button from '../components/UI/Button'
@@ -70,12 +70,12 @@ const Auth = () => {
           }
         }
       } else {
+        // expiresIn is in seconds. Convert to miliseconds
         const expirationTime = new Date(
-          new Date().getTime() + 6000000
+          new Date().getTime() + data.data.expiresIn * 1000
         )
-        console.log(authCtx)
 
-        authCtx.login(data.data.token, expirationTime.toISOString())
+        authCtx.login(data.data.token, expirationTime.toISOString(), data.data.username, data.data.name)
       }
     } catch (error) {
       setErrorMessage('Something went wrong')

@@ -14,10 +14,7 @@ const Profile = () => {
       setIsLoading(true)
       try {
         const response = await fetch('/api/v1/users/', {
-          headers: new Headers({
-            Authorization: 'Bearer ' + authCtx.token,
-            'Content-Type': 'application/x-www-form-urlencoded'
-          })
+          headers: new Headers({ Authorization: 'Bearer ' + authCtx.token })
         })
 
         const responseData = await response.json()

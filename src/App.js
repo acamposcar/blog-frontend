@@ -7,7 +7,7 @@ import Auth from './pages/Auth'
 import Container from './components/UI/Container'
 import AuthContext from './store/auth-context'
 import Profile from './pages/Profile'
-
+import Post from './pages/Post'
 function App() {
   const authCtx = useContext(AuthContext)
 
@@ -17,6 +17,7 @@ function App() {
       <Container>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/posts/:postid' element={<Post />} />
           {!authCtx.isLoggedIn && (
             <>
               <Route path='/login' element={<Auth />} />

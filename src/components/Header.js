@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import classes from './styles/Header.module.css'
+import classes from './Header.module.css'
 import AuthContext from '../store/auth-context'
 
 const Header = () => {
@@ -12,6 +12,11 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>DEV BLOG</div>
+      {authCtx.isLoggedIn &&
+
+        <p>Hello {authCtx.user.username}</p>
+
+      }
       <nav>
         <NavLink className={({ isActive }) =>
           isActive ? classes.active : undefined

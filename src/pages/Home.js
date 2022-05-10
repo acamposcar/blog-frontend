@@ -1,46 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import PostItem from '../components/PostItem'
+import Spinner from '../components/UI/Spinner'
 // import classes from './Home.module.css'
+import useFetch from '../hooks/useFetch'
 
 const Home = () => {
-  const [posts, setPosts] = useState()
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [posts, setPosts] = useState([])
+  const { loading, sendRequest, error } = useFetch()
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      setError(null)
-      setIsLoading(true)
-      try {
-        const response = await fetch('/api/v1/posts/')
-        if (!response.ok) {
-          throw new Error('Something went wrong')
-        }
-        const responseData = await response.json()
-        const postsData = []
-
-        for (const post of responseData.data) {
-          postsData.push({
-            id: post._id,
-            title: post.title,
-            content: post.content,
-            date: new Date(post.date),
-            author: post.author.username,
-            published: post.published === 'true'
-          })
-        }
-        setPosts(postsData)
-      } catch (error) {
-        setError(error.message)
+    const transformPosts = (postObj) => {
+      const postsArray = []
+      for (const post of postObj.data) {
+        postsArray.push({
+          id: post._id,
+          title: post.title,
+          content: post.content,
+          date: new Date(post.date),
+          author: post.author.username,
+          published: post.published === 'true'
+        })
       }
-
-      setIsLoading(false)
+      setPosts(postsArray)
     }
-    fetchPosts()
-  }, [])
+
+    sendRequest({ url: '/api/v1/posts' }, transformPosts)
+  }, [sendRequest])
 
   let postsList
-  if (posts) {
+  if (posts.length > 0) {
     postsList = posts.map(post => {
       return <PostItem key={post.id} post={post} />
     })
@@ -48,10 +36,10 @@ const Home = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      {!isLoading && !error && posts && postsList}
-      {!isLoading && !error && !posts && <p>No posts found...</p>}
-      {!isLoading && error && <p>{error}</p>}
+      {loading && <Spinner />}
+      {!loading && !error && posts && postsList}
+      {!loading && !error && !posts && <p>No posts found...</p>}
+      {!loading && error && <p>Something went wrong!</p>}
 
     </>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './styles/PostItem.module.css'
+import classes from './PostItem.module.css'
 import Card from './UI/Card'
 import { formatDistanceToNow } from 'date-fns'
 const PostItem = (props) => {
@@ -7,7 +7,7 @@ const PostItem = (props) => {
   console.log(post.content)
   return (
     <Card>
-      <div className={classes.title}>{post.title}</div>
+      <a href={'/posts/' + post.id} className={classes.title}>{post.title}</a>
       <div className={classes.content}>{post.content}</div>
       <div className={classes.footer}>
         <div className={classes.user}>{post.author}</div>
