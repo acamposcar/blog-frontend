@@ -76,7 +76,7 @@ const Auth = () => {
           new Date().getTime() + data.data.expiresIn * 1000
         )
 
-        authCtx.login(data.data.token, expirationTime.toISOString(), data.data.username, data.data.name)
+        authCtx.login(data.data.token, expirationTime.toISOString(), data.data.user)
       }
     } catch (error) {
       setErrorMessage('Something went wrong')
