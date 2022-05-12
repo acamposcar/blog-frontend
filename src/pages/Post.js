@@ -67,7 +67,7 @@ const Post = () => {
   }
 
   return (
-    <Container maxWidth='md'>
+    <Container maxWidth='false' sx={{ maxWidth: 750 }}>
       {loading
         ? <Spinner />
         : error
