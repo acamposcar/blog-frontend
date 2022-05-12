@@ -28,6 +28,9 @@ const Header = () => {
         }
         {authCtx.isLoggedIn &&
           <>
+            <NavLink className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            } to='/profile'>Profile</NavLink>
             <a onClick={logoutHandler}>Logout</a>
           </>
         }

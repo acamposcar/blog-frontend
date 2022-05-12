@@ -9,6 +9,7 @@ import Post from './pages/Post'
 import NotFound from './pages/NotFound'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Container } from '@mui/material'
+import Profile from './pages/Profile'
 const theme = createTheme({
   palette: {
     type: 'light',
@@ -51,6 +52,8 @@ function App() {
             <>
               <Route path='/login' element={<Auth />} />
               <Route path='/register' element={<Auth />} />
+              <Route path='/profile' element={<Navigate to="/" replace={true} />} />
+
             </>
           )}
           {authCtx.isLoggedIn && (
@@ -58,6 +61,7 @@ function App() {
               <Route path='/login' element={<Navigate to="/" replace={true} />} />
               <Route path='/register' element={<Navigate to="/" replace={true} />} />
               <Route path='/logout' element={<Navigate to="/" replace={true} />} />
+              <Route path='/profile' element={<Profile />} />
             </>
           )}
           <Route path='*' element={<NotFound />} />
