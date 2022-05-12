@@ -50,12 +50,15 @@ const Post = () => {
       id: comment._id,
       content: comment.content,
       date: new Date(comment.date),
-      author: authCtx.user.username
+      author: authCtx.user.username,
+      avatar: authCtx.user.avatar
+
     }
     setPost(prevState => {
       return { ...prevState, comments: [newComment, ...prevState.comments] }
     })
   }
+
   let commentsList
   if (post?.comments) {
     commentsList = post.comments.map(comment => {
