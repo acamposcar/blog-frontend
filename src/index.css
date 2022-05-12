@@ -3,7 +3,7 @@
   --primary-600: #8000e6;
   --primary-500: #9400ec;
   --primary-300: #b65ff3;
-  --primary-200: #cc8ff6;
+  --primary-200: #f5eafd;
   ;
 }
 
@@ -32,6 +32,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  background-color: var(--primary-200);
+  padding: 3px 5px;
 }
 
 h1,
@@ -54,5 +56,26 @@ a:active {
 }
 
 p {
-  white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 2em;
+}
+
+h3 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.7em;
 }
