@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 3em;
-    border-bottom: solid thin;
+    padding: 1.5em 5em;
+    border-bottom: solid thin rgb(211, 211, 211);
+    background-color: white;
 }
 
 .logo {

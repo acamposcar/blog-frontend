@@ -1,3 +1,12 @@
+:root {
+  --primary: #b75ad6;
+  --primary-600: #8000e6;
+  --primary-500: #9400ec;
+  --primary-300: #b65ff3;
+  --primary-200: #cc8ff6;
+  ;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -17,6 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: black;
+  background-color: #f4f6f6;
 }
 
 code {
@@ -28,4 +38,21 @@ h1,
 h2,
 h3 {
   line-height: 1.1;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-500);
+}
+
+a:active {
+  color: var(--primary-600);
+}
+
+p {
+  white-space: pre-wrap;
 }

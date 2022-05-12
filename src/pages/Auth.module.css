@@ -4,6 +4,18 @@
 
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em;
+}
+
+.message {
+    font-size: 0.9em;
+    color: grey;
+}
+
 .control {
     display: flex;
     flex-direction: column;

@@ -2,17 +2,23 @@
 
 import { useParams } from 'react-router-dom'
 import React, { useState, useEffect, useContext } from 'react'
-import PostItem from '../components/PostItem'
 import CommentItem from '../components/CommentItem'
 import useFetch from '../hooks/useFetch'
 import Spinner from '../components/UI/Spinner'
 import NewCommentForm from '../components/NewCommentForm'
 import AuthContext from '../store/auth-context'
+import PostDetail from '../components/PostDetail'
+import { Container } from '@mui/material'
+import Divider from '@mui/material/Divider'
+import Alert from '@mui/material/Alert'
+import Typography from '@mui/material/Typography'
+
 const Post = () => {
   const { postid } = useParams()
   const [post, setPost] = useState()
   const { loading, sendRequest, error } = useFetch()
   const authCtx = useContext(AuthContext)
+
   useEffect(() => {
     const transformPost = (postObj) => {
       const comments = []
@@ -21,7 +27,8 @@ const Post = () => {
           id: comment._id,
           content: comment.content,
           date: new Date(comment.date),
-          author: comment.author.username
+          author: comment.author.username,
+          avatar: comment.author.avatar
         })
       }
       setPost({
@@ -57,21 +64,27 @@ const Post = () => {
   }
 
   return (
-    <>
+    <Container maxWidth='md'>
       {loading
         ? <Spinner />
         : error
-          ? <p>{error}</p>
+          ? <Alert severity="error">{error}</Alert>
           : <>
-            {post && <PostItem post={post} />}
-            {!post && <p>No post found</p>}
-            <h1>Comments</h1>
+            {post ? <PostDetail post={post} /> : <Alert severity="info">No post found</Alert>}
+
+            <Divider variant="middle" />
+
+            <Typography gutterBottom variant="h4" component="div" sx={{ marginY: 4 }}>
+              Comments ({commentsList?.length})
+            </Typography>
+
             {authCtx.isLoggedIn && <NewCommentForm onAddComment={handleAddComment} postid={postid} />}
 
-            {commentsList?.length > 0 && commentsList}
-            {commentsList?.length === 0 && <p>No comments found</p>}
-          </>}
-    </>
+            {commentsList?.length > 0 ? commentsList : <Alert severity="info">No comments found. Sign in to leave a new comment</Alert>}
+
+          </>
+      }
+    </Container>
   )
 }
 

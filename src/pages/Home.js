@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import PostItem from '../components/PostItem'
 import Spinner from '../components/UI/Spinner'
-// import classes from './Home.module.css'
 import useFetch from '../hooks/useFetch'
+import { Grid } from '@mui/material'
+import PostItem from '../components/PostItem'
+import Alert from '@mui/material/Alert'
 
 const Home = () => {
   const [posts, setPosts] = useState([])
@@ -30,16 +31,24 @@ const Home = () => {
   let postsList
   if (posts.length > 0) {
     postsList = posts.map(post => {
-      return <PostItem key={post.id} post={post} />
+      return (
+        <Grid item xs={4} sm={4} md={4} key={post.id} >
+          <PostItem key={post.id} post={post} />
+        </Grid>
+      )
     })
   }
 
   return (
     <>
       {loading && <Spinner />}
-      {!loading && !error && posts && postsList}
-      {!loading && !error && !posts && <p>No posts found...</p>}
-      {!loading && error && <p>Something went wrong!</p>}
+      {!loading && !error && posts &&
+        <Grid container spacing={{ xs: 2, md: 4, lg: 8 }} columns={{ xs: 4, sm: 8, md: 12 }} >
+          {postsList}
+        </Grid>
+      }
+      {!loading && !error && !posts && <Alert variant="standard" severity="info">No posts found</Alert>}
+      {!loading && error && <Alert variant="standard" severity="error">Something went wrong!</Alert>}
 
     </>
   )

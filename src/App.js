@@ -4,17 +4,46 @@ import React, { useContext } from 'react'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
-import Container from './components/UI/Container'
 import AuthContext from './store/auth-context'
-import Profile from './pages/Profile'
 import Post from './pages/Post'
+import NotFound from './pages/NotFound'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { Container } from '@mui/material'
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#b75ad6'
+    },
+    secondary: {
+      main: '#f03580'
+    }
+  },
+  typography: {
+    body1: {
+      lineHeight: 1.7,
+      fontSize: '1rem',
+      fontWeight: 400,
+      letterSpacing: '0.03em'
+    }
+  },
+  shape: {
+    borderRadius: 8
+  },
+  props: {
+    MuiAppBar: {
+      color: 'default'
+    }
+  }
+})
+
 function App() {
   const authCtx = useContext(AuthContext)
 
   return (
-    <div className='App'>
+    <ThemeProvider theme={theme}>
       <Header />
-      <Container>
+      <Container sx={{ marginY: 8 }}>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/posts/:postid' element={<Post />} />
@@ -22,7 +51,6 @@ function App() {
             <>
               <Route path='/login' element={<Auth />} />
               <Route path='/register' element={<Auth />} />
-              <Route path='/profile' element={<Navigate to="/login" replace={true} />} />
             </>
           )}
           {authCtx.isLoggedIn && (
@@ -30,13 +58,12 @@ function App() {
               <Route path='/login' element={<Navigate to="/" replace={true} />} />
               <Route path='/register' element={<Navigate to="/" replace={true} />} />
               <Route path='/logout' element={<Navigate to="/" replace={true} />} />
-              <Route path='/profile' element={<Profile />} />
-
             </>
           )}
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Container>
-    </div>
+    </ThemeProvider>
   )
 }
 

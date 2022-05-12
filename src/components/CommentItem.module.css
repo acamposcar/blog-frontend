@@ -2,9 +2,29 @@
     margin: 1em 0;
 }
 
-.footer {
+.user {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em
+}
+
+.author {
+    font-weight: 700;
+    color: black;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.date {
     color: rgb(75, 75, 75);
     font-size: 0.9em;
+}
+
+.comment {
+    flex: 1;
+    padding-right: 2em;
 }

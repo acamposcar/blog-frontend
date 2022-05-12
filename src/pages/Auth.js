@@ -1,8 +1,9 @@
 import classes from './Auth.module.css'
 import React, { useEffect, useRef, useState, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import Button from '../components/UI/Button'
 import AuthContext from '../store/auth-context'
+import { TextField, Button, Avatar, Typography, Alert } from '@mui/material'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 
 const Auth = () => {
   const usernameRef = useRef()
@@ -30,8 +31,8 @@ const Auth = () => {
   const apiURL = isLogin ? 'api/login' : 'api/register'
   const buttonText = isLogin ? 'Sign in' : 'Register'
   const message = isLogin
-    ? <p>Don&apos;t have an account? <Link to='/register'>Register</Link></p>
-    : <p>Already have an account? <Link to='/login'>Sign in</Link></p>
+    ? <p className={classes.message}>Don&apos;t have an account? <Link to='/register'>Register</Link></p>
+    : <p className={classes.message} >Already have an account? <Link to='/login'>Sign in</Link></p>
 
   const submitHandler = async (event) => {
     event.preventDefault()
@@ -97,27 +98,32 @@ const Auth = () => {
   }
   return (
     <div className={classes.form}>
-      {isLogin ? <h1>Sign in</h1> : <h1>Register</h1>}
+
+      <div className={classes.header}>
+        <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          {isLogin ? 'Sign in' : 'Register'}
+        </Typography>
+      </div>
       <form onSubmit={submitHandler}>
-        {!isValidationError() && errorMessage && <p className={classes['alert-danger']}>{errorMessage}</p>}
+        {!isValidationError() && errorMessage && <Alert sx={{ marginY: 3 }} variant="standard" severity="error">{errorMessage}</Alert>}
         {!isLogin && <div className={classes.control}>
-          <label htmlFor="name">Name</label>
-          <input ref={nameRef} id="name" name="name" type="text" required maxLength={50} />
+          <TextField fullwidth id="name" label="Name" variant="outlined" inputRef={nameRef} name="name" required maxLength={50} sx={{ backgroundColor: 'white' }} />
           {nameErrors.length > 0 && formatValidationErrors(nameErrors)}
         </div>}
         <div className={classes.control}>
-          <label htmlFor="username">Username</label>
-          <input ref={usernameRef} id="username" name="username" type="text" required minLength={3} />
+          <TextField fullwidth id="username" label="Username" variant="outlined" inputRef={usernameRef} name="username" required minLength={3} sx={{ backgroundColor: 'white' }} autoFocus autoComplete="username" />
           {usernameErrors.length > 0 && formatValidationErrors(usernameErrors)}
 
         </div>
         <div className={classes.control}>
-          <label htmlFor="password">Password</label>
-          <input ref={passwordRef} id="password" name="password" type="password" required minLength={4} />
+          <TextField type="password" fullwidth id="password" label="Password" variant="outlined" inputRef={passwordRef} name="password" required minLength={4} sx={{ backgroundColor: 'white' }} autoComplete="current-password" />
           {passwordErrors.length > 0 && formatValidationErrors(passwordErrors)}
         </div>
         <div className={classes.control}>
-          <Button>{buttonText}</Button>
+          <Button fullwidth type='submit' variant="contained">{buttonText}</Button>
         </div>
       </form>
       {message}

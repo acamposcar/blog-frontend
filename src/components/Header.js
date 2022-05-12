@@ -12,11 +12,6 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>DEV BLOG</div>
-      {authCtx.isLoggedIn &&
-
-        <p>Hello {authCtx.user.username}</p>
-
-      }
       <nav>
         <NavLink className={({ isActive }) =>
           isActive ? classes.active : undefined
@@ -33,9 +28,6 @@ const Header = () => {
         }
         {authCtx.isLoggedIn &&
           <>
-            <NavLink className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            } to='/profile'>Profile</NavLink>
             <a onClick={logoutHandler}>Logout</a>
           </>
         }

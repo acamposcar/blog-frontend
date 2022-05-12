@@ -1,8 +1,9 @@
-import classes from './NewCommentForm.module.css'
 import React, { useRef, useContext } from 'react'
-import Button from '../components/UI/Button'
 import AuthContext from '../store/auth-context'
 import useFetch from '../hooks/useFetch'
+import { TextField, Button, Box } from '@mui/material'
+import SendIcon from '@mui/icons-material/Send'
+import Alert from '@mui/material/Alert'
 const NewCommentForm = (props) => {
   const { loading, sendRequest, error } = useFetch()
   const contentRef = useRef()
@@ -21,21 +22,32 @@ const NewCommentForm = (props) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${authCtx.token}`
       }
-    }, (commentObj) => { props.onAddComment(commentObj.data) })
+    }, (commentObj) => {
+      props.onAddComment(commentObj.data)
+      contentRef.current.value = ''
+    })
   }
   return (
-    <div className={classes.form}>
+    <Box mb={6}>
       <form onSubmit={submitHandler}>
-        {error && <p className={classes['alert-danger']}>{error}</p>}
-        <div className={classes.control}>
-          <label htmlFor="content">New Comment</label>
-          <textarea className={classes.content} ref={contentRef} id="content" rows={3} name="content" type="text" required />
-        </div>
-        <div className={classes.control}>
-          {loading ? <Button>Loading...</Button> : <Button>Submit</Button>}
-        </div>
+        {error && <Alert variant="standard" severity="error">{error}</Alert>}
+        <TextField
+          sx={{ marginBottom: 2, backgroundColor: 'white' }}
+          id="content"
+          label="Leave a comment"
+          name="content"
+          multiline
+          required
+          rows={3}
+          inputRef={contentRef}
+          fullWidth
+
+        />
+        {loading
+          ? <Button variant="contained" disabled>Loading...</Button>
+          : <Button type="submit" variant="contained" endIcon={<SendIcon />} >Submit</Button>}
       </form>
-    </div>
+    </Box>
   )
 }
 
