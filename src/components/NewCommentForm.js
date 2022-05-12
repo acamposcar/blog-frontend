@@ -15,9 +15,7 @@ const NewCommentForm = (props) => {
     sendRequest({
       url: `/api/v1/posts/${props.postid}/comments`,
       method: 'POST',
-      body: {
-        content: contentRef.current.value
-      },
+      body: JSON.stringify({ content: contentRef.current.value }),
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${authCtx.token}`
