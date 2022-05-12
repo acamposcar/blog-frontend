@@ -7,7 +7,9 @@ const AuthContext = React.createContext({
   user: {},
   isLoggedIn: false,
   login: (token, expirationTime, user) => { },
-  logout: () => { }
+  logout: () => { },
+  changeAvatar: (avatar) => { }
+
 })
 
 const calculateRemainingTime = (expirationTime) => {
@@ -81,6 +83,14 @@ export const AuthContextProvider = (props) => {
     logoutTimer = setTimeout(logoutHandler, remainingTime)
   }
 
+  const changeAvatarHandler = (avatar) => {
+    setUser(prevState => {
+      const updatedUser = { ...prevState, avatar }
+      localStorage.setItem('user', JSON.stringify(updatedUser))
+      return updatedUser
+    })
+  }
+
   useEffect(() => {
     if (storedData) {
       logoutTimer = setTimeout(logoutHandler, storedData.duration)
@@ -95,7 +105,8 @@ export const AuthContextProvider = (props) => {
     user,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
-    logout: logoutHandler
+    logout: logoutHandler,
+    changeAvatar: changeAvatarHandler
   }
 
   return (
