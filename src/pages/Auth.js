@@ -110,20 +110,20 @@ const Auth = () => {
       <form onSubmit={submitHandler}>
         {!isValidationError() && errorMessage && <Alert sx={{ marginY: 3 }} variant="standard" severity="error">{errorMessage}</Alert>}
         {!isLogin && <div className={classes.control}>
-          <TextField fullwidth id="name" label="Name" variant="outlined" inputRef={nameRef} name="name" required maxLength={50} sx={{ backgroundColor: 'white' }} />
+          <TextField fullWidth id="name" label="Name" variant="outlined" inputRef={nameRef} name="name" required maxLength={50} sx={{ backgroundColor: 'white' }} />
           {nameErrors.length > 0 && formatValidationErrors(nameErrors)}
         </div>}
         <div className={classes.control}>
-          <TextField fullwidth id="username" label="Username" variant="outlined" inputRef={usernameRef} name="username" required minLength={3} sx={{ backgroundColor: 'white' }} autoFocus autoComplete="username" />
+          <TextField fullWidth id="username" label="Username" variant="outlined" inputRef={usernameRef} name="username" required minLength={3} sx={{ backgroundColor: 'white' }} autoFocus autoComplete="username" />
           {usernameErrors.length > 0 && formatValidationErrors(usernameErrors)}
 
         </div>
         <div className={classes.control}>
-          <TextField type="password" fullwidth id="password" label="Password" variant="outlined" inputRef={passwordRef} name="password" required minLength={4} sx={{ backgroundColor: 'white' }} autoComplete="current-password" />
+          <TextField type="password" fullWidth id="password" label="Password" variant="outlined" inputRef={passwordRef} name="password" required minLength={4} sx={{ backgroundColor: 'white' }} autoComplete="current-password" />
           {passwordErrors.length > 0 && formatValidationErrors(passwordErrors)}
         </div>
         <div className={classes.control}>
-          <Button fullwidth type='submit' variant="contained">{buttonText}</Button>
+          <Button fullWidth type='submit' variant="contained">{buttonText}</Button>
         </div>
       </form>
       {message}
