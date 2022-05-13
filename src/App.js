@@ -38,6 +38,21 @@ const theme = createTheme({
   }
 })
 
+theme.typography.h1 = {
+  fontSize: '3rem',
+  fontWeight: 300,
+  [theme.breakpoints.up('lg')]: {
+    fontSize: '6rem'
+  }
+}
+theme.typography.h2 = {
+  fontSize: '3rem',
+
+  [theme.breakpoints.up('md')]: {
+    fontSize: '5rem'
+  }
+}
+
 function App() {
   const authCtx = useContext(AuthContext)
 

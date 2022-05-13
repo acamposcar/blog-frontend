@@ -15,8 +15,7 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
 .date {
@@ -26,5 +25,18 @@
 
 .comment {
     flex: 1;
-    padding-right: 2em;
+    padding-right: 0.5em;
+}
+
+@media (min-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .comment {
+        flex: 1;
+        padding-right: 2em;
+    }
 }

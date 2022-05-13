@@ -5,7 +5,7 @@ import { Card, Avatar } from '@mui/material'
 const CommentItem = (props) => {
   const { comment } = props
   return (
-    <Card sx={{ padding: 4, marginBottom: 3, display: 'flex', gap: 2 }}>
+    <Card sx={{ padding: 3, marginBottom: 3, display: 'flex', gap: 2 }}>
       <Avatar src={comment.avatar
         ? `http://localhost:3000/uploads/${comment.avatar}`
         : ''} sx={{ backgroundColor: 'primary.main' }}>{comment.author[0].toUpperCase()}
