@@ -34,6 +34,7 @@ code {
     monospace;
   background-color: var(--primary-200);
   padding: 2px 3px;
+  word-break: break-all;
 }
 
 h1,
@@ -79,4 +80,26 @@ h3 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 1.7em;
+  margin: 1.8em 0em 1em 0em;
+}
+
+h4 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.4em;
+  margin: 1.6em 0em 1em 0em;
+}
+
+h5 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.3em;
+  margin: 1.5em 0em 1em 0em;
+}
+
+h6 {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.1em;
+  margin: 1.3em 0em 1em 0em;
 }
