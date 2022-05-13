@@ -9,7 +9,6 @@ import remarkGfm from 'remark-gfm'
 
 const PostDetail = (props) => {
   const { post } = props
-  console.log(post)
   return (
     <>
       <Typography gutterBottom variant='h2' component="h1" sx={{ marginTop: 4 }}>
@@ -33,7 +32,7 @@ const PostDetail = (props) => {
           objectPosition: 'center'
         }}
         alt=""
-        src={`http://localhost:5000/uploads/${post.image}`}
+        src={`/uploads/${post.image}`}
       />
       <ReactMarkdown components={CodeBlock} remarkPlugins={[remarkGfm]} >{post.content}</ReactMarkdown>
 

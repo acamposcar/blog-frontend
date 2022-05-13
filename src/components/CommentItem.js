@@ -7,7 +7,7 @@ const CommentItem = (props) => {
   return (
     <Card sx={{ padding: 3, marginBottom: 3, display: 'flex', gap: 2 }}>
       <Avatar src={comment.avatar
-        ? `http://localhost:3000/uploads/${comment.avatar}`
+        ? `/uploads/${comment.avatar}`
         : ''} sx={{ backgroundColor: 'primary.main' }}>{comment.author[0].toUpperCase()}
       </Avatar>
       <div className={classes.comment}>

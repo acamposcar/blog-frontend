@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 4, textAlign: 'center' }}>
       <Avatar src={authCtx.user.avatar
-        ? `http://localhost:3000/uploads/${authCtx.user.avatar}`
+        ? `/uploads/${authCtx.user.avatar}`
         : ''} sx={{ width: 80, height: 80, backgroundColor: 'primary.main' }}>{authCtx.user.username[0].toUpperCase()}
       </Avatar>
       <Typography gutterBottom variant="h1" component="div">

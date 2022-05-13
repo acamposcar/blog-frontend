@@ -19,7 +19,7 @@ const PostItem = (props) => {
         <CardMedia
           component="img"
           height="200"
-          image={`http://localhost:3000/uploads/${post.image}`}
+          image={`/uploads/${post.image}`}
           alt=""
         />
         <CardContent>
