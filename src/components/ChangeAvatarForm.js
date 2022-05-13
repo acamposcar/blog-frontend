@@ -22,7 +22,7 @@ const ChangeAvatarForm = (props) => {
     event.preventDefault()
 
     const formData = new FormData()
-    formData.append('avatar', file.data)
+    formData.append('image', file.data)
     sendRequest({
       url: '/api/v1/users/avatar/',
       method: 'POST',
@@ -50,8 +50,8 @@ const ChangeAvatarForm = (props) => {
             type="file"
             accept=".jpg,.png,.jpeg"
             hidden
-            name="avatar"
-            id="avatar"
+            name="image"
+            id="image"
             onChange={handleChange}
           />
         </Button>

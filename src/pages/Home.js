@@ -19,7 +19,9 @@ const Home = () => {
           content: post.content,
           date: new Date(post.date),
           author: post.author.username,
-          published: post.published === 'true'
+          published: post.published === 'true',
+          image: post.image,
+          summary: post.summary
         })
       }
       setPosts(postsArray)

@@ -9,9 +9,10 @@ import remarkGfm from 'remark-gfm'
 
 const PostDetail = (props) => {
   const { post } = props
+  console.log(post)
   return (
     <>
-      <Typography gutterBottom variant="h2" component="h1" sx={{ marginTop: 4 }}>
+      <Typography gutterBottom variant='h2' component="h1" sx={{ marginTop: 4 }}>
         {post.title}
       </Typography>
       <Stack sx={{ marginY: 3 }} direction="row" spacing={1} divider={<Divider orientation="vertical" flexItem />}
@@ -31,8 +32,8 @@ const PostDetail = (props) => {
           objectFit: 'cover',
           objectPosition: 'center'
         }}
-        alt="The house from the offer."
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
+        alt=""
+        src={`http://localhost:5000/uploads/${post.image}`}
       />
       <ReactMarkdown components={CodeBlock} remarkPlugins={[remarkGfm]} >{post.content}</ReactMarkdown>
 

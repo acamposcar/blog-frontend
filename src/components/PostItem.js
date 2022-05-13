@@ -19,15 +19,15 @@ const PostItem = (props) => {
         <CardMedia
           component="img"
           height="200"
-          image="https://midu.dev/images/react-hooks-use-state.png"
-          alt="green iguana"
+          image={`http://localhost:3000/uploads/${post.image}`}
+          alt=""
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="h1">
             {post.title}
           </Typography>
           <Typography sx={{ marginY: 2 }} variant="body1" color="text.secondary">
-            {post.content.substr(0, post.content.indexOf('.') + 1)}
+            {post.summary}
           </Typography>
         </CardContent>
         <CardActions sx={{ justifyContent: 'space-between', padding: 2.5 }}>

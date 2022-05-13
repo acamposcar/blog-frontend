@@ -38,7 +38,9 @@ const Post = () => {
         date: new Date(postObj.data.date),
         author: postObj.data.author.username,
         published: postObj.data.published === 'true',
-        comments
+        comments,
+        image: postObj.data.image,
+        summary: postObj.data.sumamry
       })
     }
 
@@ -67,7 +69,7 @@ const Post = () => {
   }
 
   return (
-    <Container maxWidth='false' sx={{ maxWidth: 750 }}>
+    <Container maxWidth='false' sx={{ maxWidth: 750, padding: 0 }}>
       {loading
         ? <Spinner />
         : error
