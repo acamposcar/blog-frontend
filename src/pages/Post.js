@@ -36,7 +36,7 @@ const Post = () => {
         title: postObj.data.title,
         content: postObj.data.content,
         date: new Date(postObj.data.date),
-        author: postObj.data.author.username,
+        author: postObj.data.author.name,
         published: postObj.data.published === 'true',
         comments,
         image: postObj.data.image,

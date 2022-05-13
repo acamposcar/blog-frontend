@@ -18,7 +18,7 @@ const Home = () => {
           title: post.title,
           content: post.content,
           date: new Date(post.date),
-          author: post.author.username,
+          author: post.author.name,
           published: post.published === 'true',
           image: post.image,
           summary: post.summary
