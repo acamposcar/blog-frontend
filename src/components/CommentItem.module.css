@@ -1,5 +1,6 @@
 .content {
     margin: 1em 0;
+    white-space: pre-wrap;
 }
 
 .user {
@@ -32,6 +33,7 @@
     .header {
         display: flex;
         justify-content: space-between;
+        flex-direction: row;
         align-items: center;
     }
 
