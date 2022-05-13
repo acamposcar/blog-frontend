@@ -16,7 +16,6 @@ const useFetch = () => {
 
       const data = await response.json()
       if (!response.ok) {
-        console.log(data)
         if (data?.error) throw new Error(data.error)
         throw new Error('Request failed')
       }
