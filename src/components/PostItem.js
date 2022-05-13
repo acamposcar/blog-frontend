@@ -11,7 +11,7 @@ const PostItem = (props) => {
   const { post } = props
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate(`/posts/${post.id}`, { replace: true })
+    navigate(`/posts/${post.id}`, { replace: false })
   }
   return (
     <Card onClick={handleClick} sx={{ maxWidth: 400, margin: '0 auto' }}>
