@@ -45,7 +45,7 @@ const Home = () => {
     <>
       {loading && <Spinner />}
       {!loading && !error && posts &&
-        <Grid container spacing={{ xs: 2, md: 4, lg: 8 }} columns={{ xs: 4, sm: 8, md: 12 }} >
+        <Grid container spacing={{ xs: 6, md: 4, lg: 8 }} columns={{ xs: 4, sm: 8, md: 12 }} >
           {postsList}
         </Grid>
       }
