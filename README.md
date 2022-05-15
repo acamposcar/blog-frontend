@@ -1,4 +1,4 @@
-# DEV Blog (API Backend) - MERN Stack
+# DEV Blog (React Frontend) - MERN Stack
 Blogging website made using Express and JWT authentication in the backend and React in the frontend
 
 
