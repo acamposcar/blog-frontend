@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# DEV Blog (API Backend) - MERN Stack
+Blogging website made using Express and JWT authentication in the backend and React in the frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+👉[Backend Repo](https://github.com/acamposcar/blog-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+👉[Demo](https://blog-react-express-api.herokuapp.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Demo credentials:
+- User: normalUser
+- Password: user
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+### Home page
+![index](https://user-images.githubusercontent.com/9263545/168496688-d9532ed0-e647-42dd-a5ad-87ab07b7f5f6.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Post page
+![posts](https://user-images.githubusercontent.com/9263545/168496691-620b608f-11f5-4fb8-9825-c24eb1444552.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Syntax highlight
+![syntax](https://user-images.githubusercontent.com/9263545/168496690-b859fcc7-53d4-42e2-9a7d-aa8c621594a0.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Registration form
+![register](https://user-images.githubusercontent.com/9263545/168496692-248efd74-43a7-453c-9779-878d44c6c797.png)
 
-### `npm run eject`
+### Profile page
+![profile](https://user-images.githubusercontent.com/9263545/168496694-80e1f44c-e7c8-4954-8984-e774412173fa.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend (Rest API)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-  NodeJS & Express
+-  JWT Authentication (using Passport)
+-  MongoDB
+-  Multer (file uploading)
+-  Express Validator
 
-## Learn More
+### Frontend 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-  React
+-  React Router
+-  React Markdown
+-  React Syntax Highlighter
+-  Material UI Components
+-  CSS3
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Features
 
-### Code Splitting
+- Create posts using markdown syntax (admin users only)
+- Edit and delete posts (admin users only)
+- User registration
+- Users can upload their avatar image
+- Comment on posts (registered users)
+- Fully responsive user interface
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Installation
 
-### Analyzing the Bundle Size
+1. Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Install all dependencies
 
-### Making a Progressive Web App
+```bash 
+npm install
+```
+3. Start backend server - [Backend Repo](https://github.com/acamposcar/blog-api)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Start React app
+```bash
+npm start
+```
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
