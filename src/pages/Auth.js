@@ -72,6 +72,7 @@ const Auth = () => {
         }
       } else {
         // expiresIn is in seconds. Convert to miliseconds
+        console.log(data.data)
         const expirationTime = new Date(
           new Date().getTime() + data.data.expiresIn * 1000
         )
@@ -79,6 +80,7 @@ const Auth = () => {
         authCtx.login(data.data.token, expirationTime.toISOString(), data.data.user)
       }
     } catch (error) {
+      console.log(error)
       setErrorMessage('Something went wrong')
     }
   }
