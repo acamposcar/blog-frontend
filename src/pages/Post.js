@@ -40,7 +40,7 @@ const Post = () => {
         published: postObj.data.published === 'true',
         comments,
         image: postObj.data.image,
-        summary: postObj.data.sumamry
+        summary: postObj.data.summary
       })
     }
 
