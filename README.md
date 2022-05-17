@@ -1,5 +1,5 @@
 # DEV Blog - Blog (React Frontend) - MERN Stack
-Blogging website built with Express authentication and JWT in the backend and two React applications in the frontend, one for blog visualization (public) and one for administration (administrators only).
+Blogging website built with Express and JWT authentication in the backend and two React applications in the frontend, one for blog visualization (public) and one for administration (administrators only).
 
 👉[Backend Repo](https://github.com/acamposcar/blog-api)
 
