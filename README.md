@@ -29,7 +29,7 @@ Demo credentials:
 ### Profile page
 ![profile](https://user-images.githubusercontent.com/9263545/168496694-80e1f44c-e7c8-4954-8984-e774412173fa.png)
 
-## Screenshots - Dashboard (dashboard, administrators only)
+## Screenshots - Dashboard (administrators only)
 
 ### Posts page
 ![posts](https://user-images.githubusercontent.com/9263545/168836730-fc7c6287-66a2-44e8-b09a-69bec7bfcae2.png)
