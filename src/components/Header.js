@@ -26,6 +26,9 @@ const Header = () => {
             } to='/register'>Register</NavLink>
           </>
         }
+        {authCtx.isAdmin &&
+          <a href='/dashboard/'>Dashboard</a>
+        }
         {authCtx.isLoggedIn &&
           <>
             <NavLink className={({ isActive }) =>
@@ -34,6 +37,7 @@ const Header = () => {
             <a onClick={logoutHandler}>Logout</a>
           </>
         }
+
       </nav>
     </header>
   )
