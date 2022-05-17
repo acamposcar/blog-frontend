@@ -3,7 +3,7 @@ Blogging website built with Express and JWT authentication in the backend and tw
 
 👉[Backend Repo](https://github.com/acamposcar/blog-api)
 
-👉[Dashboard Repo](https://github.com/acamposcar/blog-api)
+👉[Dashboard Repo](https://github.com/acamposcar/blog-dashboard)
 
 👉[Demo](https://blog-react-express-api.herokuapp.com/)
 
